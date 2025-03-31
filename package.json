@@ -1,0 +1,42 @@
+{
+  "name": "goblin-code",
+  "version": "0.1.0",
+  "description": "A mischievous TypeScript CLI that turns vague coding ideas into goblin-forged quests.",
+  "type": "module",
+  "bin": {
+    "goblin-code": "./dist/cli.js",
+    "goblin": "./dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx src/cli.ts",
+    "start": "node dist/cli.js",
+    "check": "tsc --noEmit",
+    "smoke": "npm run build && node dist/cli.js conjure \"make my repo cooler\" --json && node dist/cli.js inspect ."
+  },
+  "keywords": [
+    "cli",
+    "goblin",
+    "typescript",
+    "project-generator",
+    "developer-tools"
+  ],
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "commander": "^12.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.12",
+    "tsx": "^4.15.7",
+    "typescript": "^5.4.5"
+  }
+}
