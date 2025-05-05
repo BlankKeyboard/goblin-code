@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Refactor Fog",
+    "effect": "Makes tangled code reveal one useful extraction point.",
+    "cost": 40
+  },
+  {
+    "name": "Lint Lantern",
+    "effect": "Illuminates suspicious whitespace and tiny syntax curses.",
+    "cost": 25
+  },
+  {
+    "name": "Scope Ward",
+    "effect": "Keeps a feature from becoming three unrelated products.",
+    "cost": 75
+  },
+  {
+    "name": "Ship Spark",
+    "effect": "Turns a finished local change into a real release step.",
+    "cost": 100
+  }
+]
