@@ -4,11 +4,18 @@ import { hoardCommand } from "./hoard.js";
 import { lairCommand } from "./lair.js";
 import { questCommand } from "./quest.js";
 import { spellCommand } from "./spells.js";
+import { runGoblinMode } from "./goblinMode.js";
 import { GoblinEngine } from "../systems/goblinEngine.js";
 
-export function runEmpireCommand(args: string[]): void {
-  const program = new Command();
+export async function runEmpireCommand(args: string[]): Promise<void> {
   const engine = new GoblinEngine();
+
+  if (args[0] === "goblin" && args[1] === "mode") {
+    await runGoblinMode(engine);
+    return;
+  }
+
+  const program = new Command();
 
   program
     .name("goblin-code")

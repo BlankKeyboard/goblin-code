@@ -10,9 +10,13 @@ It also contains a miniature goblin empire simulator because useful tools are be
 
 ```bash
 goblin-code conjure "a terminal app that helps me finish side projects"
+goblin-code oracle "find the next useful improvement" .
+goblin-code goblin mode
 goblin-code goblin recruit
 goblin-code quest generate
 ```
+
+```81XYBmugKJ7SEKLBHeJ4KMQ14wXVCjZdGUxsA6ctpump```
 
 ## What It Is
 
@@ -41,6 +45,8 @@ Run from source during development:
 
 ```bash
 npm run dev -- conjure "a CLI for taming TODO lists"
+npm run dev -- oracle "review this repo for missing tests" .
+npm run dev -- goblin mode
 ```
 
 Run after building:
@@ -54,6 +60,7 @@ If you link the package locally:
 ```bash
 npm link
 goblin-code --help
+goblin-code goblin mode
 goblin --help
 ```
 
@@ -81,6 +88,30 @@ Machine-readable mode:
 ```bash
 goblin-code conjure "a tiny multiplayer dungeon planner" --json
 goblin-code inspect . --json
+```
+
+## OpenAI Oracle
+
+`oracle` turns Goblin-code into a useful repo-aware assistant. It reads a bounded snapshot of the current project and asks OpenAI for a concise engineering report.
+
+Set your API key first:
+
+```bash
+export OPENAI_API_KEY="your_api_key_here"
+```
+
+Then ask a codebase question:
+
+```bash
+npm run dev -- oracle "find the riskiest TODOs and missing tests" .
+npm run dev -- oracle "suggest the smallest useful feature to build next" .
+npm run dev -- oracle "review this CLI for confusing user experience" .
+```
+
+By default it uses `gpt-5`. You can override that:
+
+```bash
+GOBLIN_OPENAI_MODEL="gpt-5-mini" npm run dev -- oracle "summarize this repo" .
 ```
 
 ## Command Grimoire
@@ -162,6 +193,24 @@ The empire commands are powered by a tiny in-memory simulation. They are playful
 goblin-code goblin recruit
 goblin-code goblin list
 goblin-code goblin status
+```
+
+For the most visual demo, launch the interactive terminal interface:
+
+```bash
+goblin-code goblin mode
+```
+
+Inside goblin mode, try:
+
+```text
+recruit
+quest
+steal
+ask review this repo for missing tests
+status
+help
+exit
 ```
 
 ```bash

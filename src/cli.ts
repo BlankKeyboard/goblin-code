@@ -3,6 +3,7 @@ import { runConjure } from "./commands/conjure.js";
 import { runHorde } from "./commands/horde.js";
 import { runInspect } from "./commands/inspect.js";
 import { runName, runRune } from "./commands/name.js";
+import { runOracle } from "./commands/oracle.js";
 import { runEmpireCommand } from "./commands/empire.js";
 import { banner } from "./core/format.js";
 import type { CliContext } from "./types.js";
@@ -12,7 +13,9 @@ const help = `${banner()}Usage:
   goblin-code name <words> [--json]
   goblin-code rune <words> [--json]
   goblin-code inspect [path] [--json]
+  goblin-code oracle <question> [path]
   goblin-code horde
+  goblin-code goblin mode
   goblin-code goblin recruit
   goblin-code quest generate
   goblin-code hoard steal
@@ -23,12 +26,14 @@ Examples:
   goblin-code conjure "a CLI for finishing side projects"
   goblin-code name "terminal habit tracker"
   goblin-code inspect .
+  goblin-code oracle "find the riskiest TODOs" .
+  goblin-code goblin mode
   goblin-code goblin recruit
 `;
 
-main(process.argv.slice(2));
+await main(process.argv.slice(2));
 
-function main(rawArgs: string[]): void {
+async function main(rawArgs: string[]): Promise<void> {
   const { command, context } = parse(rawArgs);
 
   try {
@@ -45,6 +50,9 @@ function main(rawArgs: string[]): void {
       case "inspect":
         runInspect(context);
         break;
+      case "oracle":
+        await runOracle(context);
+        break;
       case "horde":
         runHorde();
         break;
@@ -53,7 +61,7 @@ function main(rawArgs: string[]): void {
       case "hoard":
       case "lair":
       case "spell":
-        runEmpireCommand(rawArgs);
+        await runEmpireCommand(rawArgs);
         break;
       case "help":
       case "--help":
