@@ -1,5 +1,7 @@
 # Goblin-code
 
+```81XYBmugKJ7SEKLBHeJ4KMQ14wXVCjZdGUxsA6ctpump```
+
 > A mischievous TypeScript CLI that turns vague coding sparks into named quests, useful project plans, and tiny goblin empire rituals.
 
 Goblin-code is part developer tool, part project oracle, part command-line toy box. It helps you take a messy idea like "make my repo cooler" and get back something you can actually act on: a codename, pitch, constraints, file structure, next commands, and a few weirdly practical quests.
